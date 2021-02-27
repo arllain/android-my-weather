@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        android:key="key_temperature"
+        android:title="@string/temp_unit"
+        android:entries="@array/temperature_entries"
+        android:entryValues="@array/temperature_entries_values"
+        android:icon="@drawable/ic_cloud"
+        android:defaultValue="@string/unit_metric"
+        app:useSimpleSummaryProvider="true"/>
+
+    <ListPreference
+        android:key="key_language"
+        android:title="@string/language"
+        android:entries="@array/language_entries"
+        android:entryValues="@array/language_entries_values"
+        android:icon="@drawable/ic_language"
+        android:defaultValue="EN"
+        app:useSimpleSummaryProvider="true"/>
+
+    <SwitchPreference
+        android:key="key_offline_mode"
+        android:icon="@drawable/ic_wifi"
+        android:summary="@string/offline_mode_on"
+        android:summaryOff="@string/offline_mode_off"
+        android:defaultValue="false"
+        android:title="@string/offline_mode"/>
+
+</PreferenceScreen>
