@@ -33,15 +33,12 @@ class SearchFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
-        initUi()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSearch.setOnClickListener {
-            findCity()
-        }
+        initUi()
     }
 
     private fun findCity(){
@@ -76,17 +73,18 @@ class SearchFragment: Fragment() {
     }
 
     private fun initUi() {
-        binding.rvCities.adapter = searchAdapter
-        binding.rvCities.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvCities.addItemDecoration(MarginItemDecoration(16.toPx()))
-//        binding.rvCities.apply {
-//            layoutManager = LinearLayoutManager(requireContext())
-//            addItemDecoration(MarginItemDecoration(16.toPx()))
-//        }
+        binding.rvCities.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = searchAdapter
+            addItemDecoration(MarginItemDecoration(16.toPx()))
+        }
+
+        binding.btnSearch.setOnClickListener {
+            findCity()
+        }
     }
 
     companion object {
         private const val TAG = "SearchFragment"
     }
-
 }

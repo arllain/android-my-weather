@@ -1,11 +1,11 @@
 package br.com.arllain.myweather.ui.main.search
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import br.com.arllain.myweather.R
 import br.com.arllain.myweather.data.remote.model.City
 import br.com.arllain.myweather.databinding.ItemCityBinding
 import coil.load
@@ -24,10 +24,6 @@ class SearchAdapter: ListAdapter<City,SearchAdapter.ViewHolder>(SearchDiff()) {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cityToBind = getItem(position)
         holder.bind(cityToBind)
-
-//        holder.image.setOnClickListener {
-//            clickAction(imageToBind)
-//        }
     }
 
     inner class ViewHolder(private val binding: ItemCityBinding): RecyclerView.ViewHolder(binding.root) {
@@ -39,12 +35,11 @@ class SearchAdapter: ListAdapter<City,SearchAdapter.ViewHolder>(SearchDiff()) {
                 tvCountry.text = city.country.name
                 imgWeather.load(imageUrl) {
                     crossfade(true)
-                    //placeholder(city.weathers[0])
+                    placeholder(R.drawable.ic_weather_placeholder)
                 }
 
             }
         }
-//        val city = binding.city
     }
 
     class SearchDiff: DiffUtil.ItemCallback<City>() {
