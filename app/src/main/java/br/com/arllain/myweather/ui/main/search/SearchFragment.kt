@@ -14,9 +14,11 @@ import br.com.arllain.myweather.databinding.FragmentSearchBinding
 import br.com.arllain.myweather.extension.isInternetAvailable
 import br.com.arllain.myweather.extension.toPx
 import br.com.arllain.myweather.util.MarginItemDecoration
+import br.com.arllain.myweather.util.ReadFile
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 
 class SearchFragment: Fragment() {
@@ -42,12 +44,15 @@ class SearchFragment: Fragment() {
     }
 
     private fun findCity(){
+        val file = File(requireContext().filesDir, "owApiKey")
+        val apiKey = ReadFile.readSafeFile(file, requireContext())
+
         if (requireContext().isInternetAvailable()){
             val call = RetrofitManager.getOpenWeatherService().findCity(
                 binding.edtSearch.text.toString(),
                 "metric",
                 "pt",
-                "070575d54187ef0372c9360509872652"
+                apiKey
             )
 
             call.enqueue(object : Callback<FindResult> {
