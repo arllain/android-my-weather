@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:backgroundTint="#E3D9F6"
+    app:cardBackgroundColor="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
@@ -25,11 +27,12 @@
 
         <ImageView
             android:id="@+id/imgWeather"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="98dp"
+            android:layout_height="78dp"
+            android:contentDescription="@string/weather_image"
+            app:layout_constraintBottom_toTopOf="@+id/tvTemperature"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCityName"
             app:srcCompat="@drawable/ic_weather_placeholder" />
 
         <TextView
@@ -37,10 +40,73 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCityName"
             tools:text="BR" />
+
+        <TextView
+            android:id="@+id/tvWeatherDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountry"
+            tools:layout_editor_absoluteX="16dp"
+            tools:text="Cloudy" />
+
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="45dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeatherDescription"
+            tools:text="12" />
+
+
+        <ImageView
+            android:id="@+id/imgCloudy"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="44dp"
+            android:contentDescription="@string/weather_image"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTemperature"
+            app:layout_constraintStart_toEndOf="@+id/tvTemperature"
+            app:srcCompat="@drawable/ic_cloud_queue" />
+
+        <TextView
+            android:id="@+id/tvHumidity"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCloudy"
+            app:layout_constraintStart_toEndOf="@+id/imgCloudy"
+            app:layout_constraintTop_toTopOf="@+id/imgCloudy"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="69.9%" />
+
+        <ImageView
+            android:id="@+id/imgWind"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="56dp"
+            android:contentDescription="@string/weather_image"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHumidity"
+            app:layout_constraintStart_toEndOf="@+id/tvHumidity"
+            app:srcCompat="@drawable/ic_wind" />
+
+        <TextView
+            android:id="@+id/tvWind"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgWind"
+            app:layout_constraintStart_toEndOf="@+id/imgWind"
+            tools:text="4.12" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
