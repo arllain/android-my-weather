@@ -8,8 +8,7 @@ data class FindResult(
     @SerializedName("message")
     var message: String,
     @SerializedName("list")
-    var cities: List<City>
-
+    var cities: List<City>,
 )
 
 
@@ -21,9 +20,11 @@ data class City(
     @SerializedName("sys")
     var country: Country,
     @SerializedName("weather")
-    var weathers: List<Weather>
-
-
+    var weathers: List<Weather>,
+    @SerializedName("main")
+    var temperature: Temperature,
+    @SerializedName("wind")
+    var wind: Wind
 )
 
 data class Country(
@@ -38,4 +39,24 @@ data class Weather(
     var description: String,
     @SerializedName("icon")
     var icon: String
+)
+
+data class  Temperature (
+    @SerializedName("temp")
+    var temp: Double,
+    @SerializedName("feels_like")
+    var feelsLike : Double,
+    @SerializedName("temp_min")
+    var temp_min: Double,
+    @SerializedName("temp_max")
+    var temp_max: Double,
+    @SerializedName("pressure")
+    var pressure: Double,
+    @SerializedName("humidity")
+    var humidity: Double
+)
+
+data class  Wind (
+   @SerializedName("wind")
+   var speed: Double,
 )

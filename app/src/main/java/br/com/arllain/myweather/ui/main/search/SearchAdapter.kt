@@ -33,6 +33,10 @@ class SearchAdapter: ListAdapter<City,SearchAdapter.ViewHolder>(SearchDiff()) {
             binding.apply {
                 tvCityName.text = city.name
                 tvCountry.text = city.country.name
+                tvWeatherDescription.text = city.weathers[0].description
+                tvTemperature.text = city.temperature.temp.toString()
+                tvHumidity.text = city.temperature.humidity.toString().plus(" %")
+                tvWind.text = city.wind.speed.toString()
                 imgWeather.load(imageUrl) {
                     crossfade(true)
                     placeholder(R.drawable.ic_weather_placeholder)

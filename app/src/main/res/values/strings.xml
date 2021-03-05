@@ -17,5 +17,6 @@
     <string name="offline_mode_off">The app requires a network connection to get data</string>
     <string name="api_key">API Key</string>
     <string name="ok">OK</string>
+    <string name="weather_image">weather image</string>
 
 </resources>

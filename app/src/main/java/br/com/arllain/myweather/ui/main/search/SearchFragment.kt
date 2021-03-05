@@ -48,14 +48,14 @@ class SearchFragment: Fragment() {
         val apiKey = ReadFile.readSafeFile(file, requireContext())
 
         if (requireContext().isInternetAvailable()){
-            val call = RetrofitManager.getOpenWeatherService().findCity(
+            val call = RetrofitManager.getOpenWeatherService()?.findCity(
                 binding.edtSearch.text.toString(),
                 "metric",
                 "pt",
                 apiKey
             )
 
-            call.enqueue(object : Callback<FindResult> {
+            call?.enqueue(object : Callback<FindResult> {
                 override fun onResponse(call: Call<FindResult>, response: Response<FindResult>) {
                     if (response.isSuccessful) {
                         searchAdapter.submitList(response.body()?.cities)
