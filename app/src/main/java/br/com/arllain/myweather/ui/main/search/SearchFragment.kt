@@ -1,6 +1,7 @@
 package br.com.arllain.myweather.ui.main.search
 
 import android.os.Bundle
+import androidx.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.arllain.myweather.R
 import br.com.arllain.myweather.data.remote.RetrofitManager
 import br.com.arllain.myweather.data.remote.model.FindResult
 import br.com.arllain.myweather.databinding.FragmentSearchBinding
@@ -46,22 +48,28 @@ class SearchFragment: Fragment() {
     private fun findCity(){
         val file = File(requireContext().filesDir, "owApiKey")
         val apiKey = ReadFile.readSafeFile(file, requireContext())
+        val sharedPreference = PreferenceManager.getDefaultSharedPreferences(context)
+        val units = sharedPreference.getString("key_temperature_unit", getString(R.string.unit_metric)).toString()
+        val lang = sharedPreference.getString("key_language", getString(R.string.lang_english)).toString()
+        var tempCF = getString(R.string.temp_celcius)
+        if (units == getString(R.string.unit_imperial)) {
+            tempCF = getString(R.string.temp_fahrenheit)
+        }
 
         if (requireContext().isInternetAvailable()){
             val call = RetrofitManager.getOpenWeatherService()?.findCity(
                 binding.edtSearch.text.toString(),
-                "metric",
-                "pt",
+                units,
+                lang,
                 apiKey
             )
 
             call?.enqueue(object : Callback<FindResult> {
                 override fun onResponse(call: Call<FindResult>, response: Response<FindResult>) {
                     if (response.isSuccessful) {
-                        searchAdapter.submitList(response.body()?.cities)
-                        response.body()?.cities?.forEach {
-                            Log.d(TAG, "onResponse: $it")
-                        }
+                        val cities = response.body()?.cities
+                        cities?.forEach { city -> city.tempCF = tempCF }
+                        searchAdapter.submitList(cities)
                     } else {
                         Log.w(TAG, "onResponse: ${response.message()}",)
                     }

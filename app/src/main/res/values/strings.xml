@@ -7,10 +7,16 @@
     <string name="temp_unit">Temperature Unit</string>
     <string name="unit_metric" formatted="false">metric</string>
     <string name="unit_imperial" formatted="false">imperial</string>
+    <string name="temp_fahrenheit" formatted="false">°F</string>
+    <string name="temp_celcius" formatted="false">°C</string>
+
 
     <string name="language">Language</string>
     <string name="lang_portuguese" formatted="false">PT</string>
     <string name="lang_english" formatted="false">EN</string>
+    <string name="lang_portuguese_description" formatted="false">Português (PT)</string>
+    <string name="lang_english_description" formatted="false">English (EN)</string>
+
 
     <string name="offline_mode">Offline mode</string>
     <string name="offline_mode_on">The app will use the cache data</string>

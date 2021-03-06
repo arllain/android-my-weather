@@ -24,7 +24,8 @@ data class City(
     @SerializedName("main")
     var temperature: Temperature,
     @SerializedName("wind")
-    var wind: Wind
+    var wind: Wind,
+    var tempCF: String
 )
 
 data class Country(

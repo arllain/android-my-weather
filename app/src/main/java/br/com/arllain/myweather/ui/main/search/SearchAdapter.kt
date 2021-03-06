@@ -1,7 +1,9 @@
 package br.com.arllain.myweather.ui.main.search
 
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.TypedArrayUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +36,8 @@ class SearchAdapter: ListAdapter<City,SearchAdapter.ViewHolder>(SearchDiff()) {
                 tvCityName.text = city.name
                 tvCountry.text = city.country.name
                 tvWeatherDescription.text = city.weathers[0].description
-                tvTemperature.text = city.temperature.temp.toString()
+                "%.0f".format(city.temperature.temp).also { tvTemperature.text = it }
+                tvTempCF.text = city.tempCF
                 tvHumidity.text = city.temperature.humidity.toString().plus(" %")
                 tvWind.text = city.wind.speed.toString()
                 imgWeather.load(imageUrl) {
