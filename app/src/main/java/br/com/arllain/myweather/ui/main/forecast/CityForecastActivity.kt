@@ -52,7 +52,6 @@ class CityForecastActivity : AppCompatActivity() {
             addItemDecoration(MarginItemDecoration(16.toPx()))
         }
         binding.btnFavorite.setOnClickListener {
-            Toast.makeText(this, "Favoritos !!", Toast.LENGTH_SHORT).show()
             saveCity(city)
         }
     }

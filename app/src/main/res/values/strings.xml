@@ -30,5 +30,7 @@
     <string name="weatherIn">Weather in</string>
     <string name="warning">Warning!</string>
     <string name="provideApiKey">You must provide an API Key so you can access the Open Weather</string>
+    <string name="delete">Delete</string>
+    <string name="type_the_city_or_country_name">Type the city or country name</string>
 
 </resources>

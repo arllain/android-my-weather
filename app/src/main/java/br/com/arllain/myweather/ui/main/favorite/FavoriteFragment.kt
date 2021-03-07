@@ -6,15 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.arllain.myweather.data.local.DataBaseApp
 import br.com.arllain.myweather.data.local.model.Favorite
 import br.com.arllain.myweather.databinding.FragmentFavoriteBinding
 import br.com.arllain.myweather.databinding.FragmentSearchBinding
+import br.com.arllain.myweather.extension.toPx
+import br.com.arllain.myweather.ui.main.forecast.ForecastAdapter
 import br.com.arllain.myweather.ui.main.search.SearchFragment
+import br.com.arllain.myweather.util.MarginItemDecoration
 
 class FavoriteFragment: Fragment() {
 
-    lateinit var binding: FragmentFavoriteBinding
+    private lateinit var binding: FragmentFavoriteBinding
+
+    private val favoriteAdapter by lazy {
+        FavoriteAdapter()
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,9 +37,13 @@ class FavoriteFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val dao = DataBaseApp.getInstance(requireContext()).getFavoriteDao()
-        dao.getAll().forEach {
-            Log.d("DB", "onActivityCreated: $it")
+        binding.rvFavorites.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = favoriteAdapter
+            addItemDecoration(MarginItemDecoration(16.toPx()))
         }
+
+        val dao = DataBaseApp.getInstance(requireContext()).getFavoriteDao()
+        favoriteAdapter.submitList(dao.getAll())
     }
 }
