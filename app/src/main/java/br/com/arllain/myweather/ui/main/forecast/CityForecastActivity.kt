@@ -44,15 +44,17 @@ class CityForecastActivity : AppCompatActivity() {
 
     private fun initUi() {
         supportActionBar?.title = "Forecast"
-        listForcast(city)
+        if (city != null) {
+           listForcast(city)
 
-        binding.rvForecast.apply {
-            layoutManager = LinearLayoutManager(this@CityForecastActivity)
-            adapter = forecastAdapter
-            addItemDecoration(MarginItemDecoration(16.toPx()))
-        }
-        binding.btnFavorite.setOnClickListener {
-            saveCity(city)
+            binding.rvForecast.apply {
+                layoutManager = LinearLayoutManager(this@CityForecastActivity)
+                adapter = forecastAdapter
+                addItemDecoration(MarginItemDecoration(16.toPx()))
+            }
+            binding.btnFavorite.setOnClickListener {
+                saveCity(city)
+            }
         }
     }
 

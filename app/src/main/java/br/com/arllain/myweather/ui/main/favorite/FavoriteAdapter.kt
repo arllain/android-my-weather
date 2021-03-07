@@ -1,6 +1,5 @@
 package br.com.arllain.myweather.ui.main.favorite
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.arllain.myweather.data.local.model.Favorite
 import br.com.arllain.myweather.databinding.ItemCityFavoriteBinding
 
-class FavoriteAdapter: ListAdapter<Favorite,FavoriteAdapter.ViewHolder>(SearchDiff()) {
+class FavoriteAdapter(
+        private val onDeleteClick: (Favorite) -> Unit
+): ListAdapter<Favorite,FavoriteAdapter.ViewHolder>(SearchDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemCityFavoriteBinding.inflate(
@@ -31,7 +32,7 @@ class FavoriteAdapter: ListAdapter<Favorite,FavoriteAdapter.ViewHolder>(SearchDi
                     tvFavoriteCityName.text = favorite.city_name
                     tvFavoriteCountry.text = favorite.country_name
                     btnDelete.setOnClickListener {
-                        Log.w("Delete", "favorite: $favorite")
+                        onDeleteClick(favorite)
                     }
                 }
         }
