@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Meu Clima</string>
-    <string name="menu_search">Busca</string>
+    <string name="menu_search">Pesquisar</string>
     <string name="menu_favorite">Favorito</string>
     <string name="menu_settings">Configurações</string>
 
@@ -25,5 +25,9 @@
     <string name="api_key">Chave API</string>
     <string name="ok">OK</string>
     <string name="weather_image">weather image</string>
+    <string name="type_a_city">Digite uma cidade</string>
+    <string name="search">Pesquisar</string>
+    <string name="favorite">Favorito</string>
+    <string name="weatherIn">Clima em </string>
 
 </resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.forecast.CityForecastActivity">
+
+    <TextView
+        android:id="@+id/tvCityWeather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Weather in City, BR" />
+
+
+    <ImageView
+        android:id="@+id/imgWeather"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/weather_image"
+        app:layout_constraintStart_toStartOf="@+id/tvCityWeather"
+        app:layout_constraintTop_toBottomOf="@+id/tvCityWeather"
+        app:srcCompat="@drawable/ic_weather_placeholder" />
+
+    <TextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/imgWeather"
+        app:layout_constraintTop_toTopOf="@+id/imgWeather"
+        tools:text="12°C" />
+
+    <TextView
+        android:id="@+id/tvTempCF"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTemperature"
+        app:layout_constraintStart_toEndOf="@+id/tvTemperature"
+        app:layout_constraintTop_toTopOf="@+id/tvTemperature"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/temp_celcius" />
+
+    <Button
+        android:id="@+id/btnFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="137dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/favorite"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTempCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTempCF"
+        app:layout_constraintTop_toTopOf="@+id/tvTempCF" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvForecast"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
+        tools:listitem="@layout/item_city_forecast" />
+</androidx.constraintlayout.widget.ConstraintLayout>

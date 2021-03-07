@@ -2,7 +2,7 @@ package br.com.arllain.myweather.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class FindResult(
+data class SearchResult(
     @SerializedName("cod")
     var cod: Int,
     @SerializedName("message")

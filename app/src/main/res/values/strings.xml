@@ -24,5 +24,9 @@
     <string name="api_key">API Key</string>
     <string name="ok">OK</string>
     <string name="weather_image">weather image</string>
+    <string name="type_a_city">Type a city</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="weatherIn">Weather in</string>
 
 </resources>
