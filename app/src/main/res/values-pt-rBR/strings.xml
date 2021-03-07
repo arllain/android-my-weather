@@ -29,5 +29,7 @@
     <string name="search">Pesquisar</string>
     <string name="favorite">Favorito</string>
     <string name="weatherIn">Clima em </string>
+    <string name="warning">Aviso!</string>
+    <string name="provideApiKey">Você deve informar a chave da API para que você poissa acessar a Open Weather</string>
 
 </resources>

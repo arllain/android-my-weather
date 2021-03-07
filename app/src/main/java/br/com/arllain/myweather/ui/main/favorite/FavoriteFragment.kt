@@ -29,10 +29,6 @@ class FavoriteFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val dao = DataBaseApp.getInstance(requireContext()).getFavoriteDao()
-
-        val favorite = Favorite(1, "Recife")
-        dao.insert(favorite)
-
         dao.getAll().forEach {
             Log.d("DB", "onActivityCreated: $it")
         }

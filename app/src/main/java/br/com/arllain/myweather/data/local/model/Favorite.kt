@@ -10,5 +10,8 @@ data class Favorite(
     @ColumnInfo(name = "id")
     var id : Long = -1,
     @ColumnInfo(name = "city_name")
-    var city_name: String = ""
+    var city_name: String = "",
+    @ColumnInfo(name = "country_name")
+    var country_name: String = ""
+
 )

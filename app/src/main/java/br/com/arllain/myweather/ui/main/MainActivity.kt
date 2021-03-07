@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
             val dialogApiKeyView = layoutInflater.inflate(R.layout.dialog_apikey, null)
             builder.apply {
                 setView(dialogApiKeyView)
-                setTitle("Warning!")
-                setMessage("You must provide an API Key so you can access the Open Weather")
+                setTitle(getString(R.string.warning))
+                setMessage(getString(R.string.provideApiKey))
                 setCancelable(false)
 
                 setPositiveButton(resources.getString(R.string.ok)) { dialog, _ ->

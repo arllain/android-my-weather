@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.arllain.myweather.R
+import br.com.arllain.myweather.data.local.DataBaseApp
+import br.com.arllain.myweather.data.local.model.Favorite
 import br.com.arllain.myweather.data.remote.RetrofitManager
 import br.com.arllain.myweather.data.remote.model.City
 import br.com.arllain.myweather.data.remote.model.ForecastResult
@@ -48,6 +50,28 @@ class CityForecastActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@CityForecastActivity)
             adapter = forecastAdapter
             addItemDecoration(MarginItemDecoration(16.toPx()))
+        }
+        binding.btnFavorite.setOnClickListener {
+            Toast.makeText(this, "Favoritos !!", Toast.LENGTH_SHORT).show()
+            saveCity(city)
+        }
+    }
+
+    private fun saveCity(city: City?) {
+        val dao = DataBaseApp.getInstance(this).getFavoriteDao()
+
+        val favoriteFound = city?.id?.let { dao.getById(it) }
+
+        if (favoriteFound != null){
+            dao.delete(favoriteFound)
+        }
+
+        val favoriteTobeSaved = city?.id?.let {
+            Favorite(it, city.name, city.country.name)
+        }
+
+        if (favoriteTobeSaved != null) {
+            dao.insert(favoriteTobeSaved)
         }
     }
 

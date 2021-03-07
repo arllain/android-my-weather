@@ -28,5 +28,7 @@
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="weatherIn">Weather in</string>
+    <string name="warning">Warning!</string>
+    <string name="provideApiKey">You must provide an API Key so you can access the Open Weather</string>
 
 </resources>
