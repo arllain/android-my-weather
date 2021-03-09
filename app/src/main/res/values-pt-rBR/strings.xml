@@ -33,6 +33,7 @@
     <string name="provideApiKey">Você deve informar a chave da API para que você poissa acessar a Open Weather</string>
     <string name="delete">Deletar</string>
     <string name="type_the_city_or_country_name">Digite o nome da cidade ou do País</string>
+    <string name="forecast">Previsão</string>
 
 
 </resources>

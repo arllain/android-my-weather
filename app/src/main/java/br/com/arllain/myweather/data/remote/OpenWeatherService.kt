@@ -24,6 +24,10 @@ interface OpenWeatherService {
     fun listCityWeather(
         @Query("id")
         cityId: Long,
+        @Query("units")
+        units: String,
+        @Query("lang")
+        lang: String,
         @Query("appid")
         appId: String
     ): Call<ForecastResult>

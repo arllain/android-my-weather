@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.arllain.myweather.R
 import br.com.arllain.myweather.data.local.DataBaseApp
@@ -93,10 +94,20 @@ class CityForecastActivity : AppCompatActivity() {
 
             val file = File(this.filesDir, "owApiKey")
             val apiKey = ReadFile.readSafeFile(file, this)
+            val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this)
+            val units = sharedPreference.getString(
+                    "key_temperature_unit",
+                    getString(R.string.unit_metric)
+            ).toString()
+
+            val lang = sharedPreference.getString("key_language", getString(R.string.lang_english)).toString()
+
 
             if (this.isInternetAvailable()) {
                 val call = RetrofitManager.getOpenWeatherService()?.listCityWeather(
                     city.id,
+                    units,
+                    lang,
                     apiKey
                 )
 
