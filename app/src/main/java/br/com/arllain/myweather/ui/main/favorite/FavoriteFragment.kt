@@ -30,7 +30,6 @@ class FavoriteFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFavoriteBinding.inflate(layoutInflater, container, false)
-        dao = DataBaseApp.getInstance(requireContext()).getFavoriteDao()
         return binding.root
     }
 
@@ -43,7 +42,17 @@ class FavoriteFragment: Fragment() {
             addItemDecoration(MarginItemDecoration(16.toPx()))
         }
 
+        dao = DataBaseApp.getInstance(requireContext()).getFavoriteDao()
         favoriteAdapter.submitList(dao.getAll())
+
+        binding.btnSearch.setOnClickListener {
+            if (binding.edtSearch.text.isNotBlank()) {
+                favoriteAdapter.submitList(dao.getByCidadeOrCountry("%" + binding.edtSearch.text.toString() + "%"))
+            }else{
+                updateFavoriteList()
+            }
+        }
+
     }
 
     private fun updateFavoriteList(){

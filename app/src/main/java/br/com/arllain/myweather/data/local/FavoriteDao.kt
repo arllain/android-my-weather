@@ -20,4 +20,8 @@ interface FavoriteDao {
 
     @Query("SELECT * FROM tb_favorites WHERE id = :id")
     fun getById(id: Long): Favorite
+
+    @Query("SELECT * FROM tb_favorites WHERE (city_name like :name)  or (country_name like :name) ")
+    fun getByCidadeOrCountry(name: String): List<Favorite>
+
 }
