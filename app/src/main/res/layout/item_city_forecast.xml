@@ -7,15 +7,6 @@
     android:backgroundTint="#E3D9F6"
     app:cardBackgroundColor="#FFFFFF">
 
-    <TextView
-        android:id="@+id/tvCountry2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCityName"
-        tools:text="BR" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -27,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/imgWeather"
             app:layout_constraintStart_toStartOf="parent"

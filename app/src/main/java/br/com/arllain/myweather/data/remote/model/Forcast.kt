@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Forcast(
     @SerializedName("dt")
-    var name: Long,
+    var dt: Long,
     @SerializedName("main")
     var temperature: Temperature,
     @SerializedName("weather")

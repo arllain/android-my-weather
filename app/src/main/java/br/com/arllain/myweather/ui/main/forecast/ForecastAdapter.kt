@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.arllain.myweather.R
 import br.com.arllain.myweather.data.remote.model.Forcast
 import br.com.arllain.myweather.databinding.ItemCityForecastBinding
+import br.com.arllain.myweather.util.DateTimeUtils
 import coil.load
 
 class ForecastAdapter: ListAdapter<Forcast,ForecastAdapter.ViewHolder>(SearchDiff()) {
@@ -30,7 +31,7 @@ class ForecastAdapter: ListAdapter<Forcast,ForecastAdapter.ViewHolder>(SearchDif
         fun bind(forcast: Forcast) {
             val imageUrl = "http://openweathermap.org/img/wn/${forcast.weatherList[0].icon}@4x.png"
             binding.apply {
-                tvDate.text = forcast.data_txt
+                tvDate.text = DateTimeUtils.getRelativeDateFormat(forcast.dt)
                 tvWeatherDescription.text = forcast.weatherList[0].description
                 "%.0f".format(forcast.temperature.temp).also { tvTemperature.text = it }
 //                tvTempCF.text = city.tempCF
@@ -47,7 +48,7 @@ class ForecastAdapter: ListAdapter<Forcast,ForecastAdapter.ViewHolder>(SearchDif
 
     class SearchDiff: DiffUtil.ItemCallback<Forcast>() {
         override fun areItemsTheSame(oldItem: Forcast, newItem: Forcast) = oldItem == newItem
-        override fun areContentsTheSame(oldItem: Forcast, newItem: Forcast) = oldItem.name == newItem.name    }
+        override fun areContentsTheSame(oldItem: Forcast, newItem: Forcast) = oldItem.dt == newItem.dt    }
 }
 
 
