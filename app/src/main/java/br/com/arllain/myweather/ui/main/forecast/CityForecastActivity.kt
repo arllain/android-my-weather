@@ -44,7 +44,7 @@ class CityForecastActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        supportActionBar?.title = "Forecast"
+        supportActionBar?.title = getString(R.string.forecast)
         if (city != null) {
            listForcast(city)
 
