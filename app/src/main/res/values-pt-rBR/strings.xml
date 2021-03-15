@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meu Clima</string>
+    <string name="menu_search">Pesquisar</string>
+    <string name="menu_favorite">Favorito</string>
+    <string name="menu_settings">Configurações</string>
+
+    <string name="temp_unit">Unidade de Temperatura</string>
+    <string name="unit_metric" formatted="false">métrico</string>
+    <string name="unit_imperial" formatted="false">imperial</string>
+    <string name="temp_fahrenheit" formatted="false">°F</string>
+    <string name="temp_celcius" formatted="false">°C</string>
+
+
+    <string name="language">Língua</string>
+    <string name="lang_portuguese" formatted="false">PT</string>
+    <string name="lang_english" formatted="false">EN</string>
+    <string name="lang_portuguese_description" formatted="false">Português (PT)</string>
+    <string name="lang_english_description" formatted="false">English (EN)</string>
+
+
+    <string name="offline_mode">Modo offline</string>
+    <string name="offline_mode_on">O app irá usar dados em cache</string>
+    <string name="offline_mode_off">O app requer uma conexão com a internet para obter os dados</string>
+    <string name="api_key">Chave API</string>
+    <string name="ok">OK</string>
+    <string name="weather_image">weather image</string>
+    <string name="type_a_city">Digite uma cidade</string>
+    <string name="search">Pesquisar</string>
+    <string name="favorite">Favorito</string>
+    <string name="weatherIn">Clima em </string>
+    <string name="warning">Aviso!</string>
+    <string name="provideApiKey">Você deve informar a chave da API para que você poissa acessar a Open Weather</string>
+    <string name="delete">Deletar</string>
+    <string name="type_the_city_or_country_name">Digite o nome da cidade ou do País</string>
+    <string name="forecast">Previsão</string>
+
+
+</resources>

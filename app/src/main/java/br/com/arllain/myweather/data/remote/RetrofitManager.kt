@@ -10,6 +10,6 @@ object RetrofitManager {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getOpenWeatherService() = instance.create(OpenWeatherService::class.java)
+    fun getOpenWeatherService(): OpenWeatherService? = instance.create(OpenWeatherService::class.java)
 
 }

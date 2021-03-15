@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-        android:key="key_temperature"
+        android:key="key_temperature_unit"
         android:title="@string/temp_unit"
         android:entries="@array/temperature_entries"
         android:entryValues="@array/temperature_entries_values"
@@ -17,7 +17,7 @@
         android:entries="@array/language_entries"
         android:entryValues="@array/language_entries_values"
         android:icon="@drawable/ic_language"
-        android:defaultValue="EN"
+        android:defaultValue="@string/lang_english"
         app:useSimpleSummaryProvider="true"/>
 
     <SwitchPreference

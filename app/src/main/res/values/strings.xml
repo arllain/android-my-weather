@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyWeather</string>
+    <string name="app_name">My Weather</string>
     <string name="menu_search">Search</string>
     <string name="menu_favorite">Favorite</string>
     <string name="menu_settings">Settings</string>
@@ -7,12 +7,31 @@
     <string name="temp_unit">Temperature Unit</string>
     <string name="unit_metric" formatted="false">metric</string>
     <string name="unit_imperial" formatted="false">imperial</string>
+    <string name="temp_fahrenheit" formatted="false">°F</string>
+    <string name="temp_celcius" formatted="false">°C</string>
+
 
     <string name="language">Language</string>
     <string name="lang_portuguese" formatted="false">PT</string>
     <string name="lang_english" formatted="false">EN</string>
+    <string name="lang_portuguese_description" formatted="false">Português (PT)</string>
+    <string name="lang_english_description" formatted="false">English (EN)</string>
+
 
     <string name="offline_mode">Offline mode</string>
     <string name="offline_mode_on">The app will use the cache data</string>
     <string name="offline_mode_off">The app requires a network connection to get data</string>
+    <string name="api_key">API Key</string>
+    <string name="ok">OK</string>
+    <string name="weather_image">weather image</string>
+    <string name="type_a_city">Type a city</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="weatherIn">Weather in</string>
+    <string name="warning">Warning!</string>
+    <string name="provideApiKey">You must provide an API Key so you can access the Open Weather</string>
+    <string name="delete">Delete</string>
+    <string name="type_the_city_or_country_name">Type the city or country name</string>
+    <string name="forecast">Forecast</string>
+
 </resources>
