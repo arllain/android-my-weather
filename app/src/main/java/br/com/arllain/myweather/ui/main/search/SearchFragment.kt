@@ -88,19 +88,25 @@ class SearchFragment: Fragment() {
                     } else {
                         Log.w(TAG, "onResponse: ${response.message()}")
                     }
+                    binding.progressBar.visibility = View.INVISIBLE
                 }
 
                 override fun onFailure(call: Call<SearchResult>, t: Throwable) {
+                    binding.progressBar.visibility = View.INVISIBLE
                     Log.e(TAG, "onFailure", t)
                 }
 
             })
         }else {
-            Toast.makeText(requireContext(), "No network access", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "No network access", Toast.LENGTH_LONG).show()
+            binding.progressBar.visibility = View.INVISIBLE
         }
+
     }
 
     private fun initUi() {
+        binding.progressBar.visibility = View.INVISIBLE
+
         binding.rvCities.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = searchAdapter
@@ -108,6 +114,7 @@ class SearchFragment: Fragment() {
         }
 
         binding.btnSearch.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
             findCity()
         }
     }

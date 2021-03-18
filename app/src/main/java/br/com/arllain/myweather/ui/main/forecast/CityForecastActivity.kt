@@ -2,6 +2,7 @@ package br.com.arllain.myweather.ui.main.forecast
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
@@ -46,7 +47,10 @@ class CityForecastActivity : AppCompatActivity() {
     private fun initUi() {
         supportActionBar?.title = getString(R.string.forecast)
         if (city != null) {
-           listForcast(city)
+
+            binding.progressBar.visibility = View.VISIBLE
+
+            listForcast(city)
 
             binding.rvForecast.apply {
                 layoutManager = LinearLayoutManager(this@CityForecastActivity)
@@ -121,15 +125,18 @@ class CityForecastActivity : AppCompatActivity() {
                         } else {
                             Log.w(CityForecastActivity.TAG, "onResponse: ${response.message()}",)
                         }
+                        binding.progressBar.visibility = View.INVISIBLE
                     }
 
                     override fun onFailure(call: Call<ForecastResult>, t: Throwable) {
+                        binding.progressBar.visibility = View.INVISIBLE
                         Log.e(CityForecastActivity.TAG, "onFailure", t)
                     }
 
                 })
             } else {
                 Toast.makeText(this, "No network access", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.INVISIBLE
             }
         }
 
